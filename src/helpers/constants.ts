@@ -1,4 +1,4 @@
-export const baseApiUrl = "https://newsapi.org/v2";
+export const baseApiUrl = "http://newsapi.org/v2";
 export const apiKey = "499efd9767c54b0cbf568d0e6ce37ae5";
 
 export const INTERSECTION_THRESHOLD = 5;

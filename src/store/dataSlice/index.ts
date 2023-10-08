@@ -12,9 +12,13 @@ import {
   articlesTypes,
 } from "../../helpers/types";
 import moment from "moment";
+import NewsAPI from "ts-newsapi";
 
 export const getNews = createAsyncThunk("data/getNews", async () => {
-  const response = await axios.get(`${baseApiUrl}/sources?apiKey=${apiKey}`);
+  // const response = await axios.get(`${baseApiUrl}/sources?apiKey=${apiKey}`);
+  const response = await axios.get(
+    "https://newsapi.org/v2/sources?&domains=https://cors-anywhere.herokuapp.com&excludeDomains=https://cors-anywhere.herokuapp.com/&apiKey=499efd9767c54b0cbf568d0e6ce37ae5"
+  );
 
   return response.data.sources;
 });
