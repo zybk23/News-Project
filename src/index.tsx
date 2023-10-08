@@ -1,15 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./store";
+import "./index.css";
+import News from "./pages/News";
+import NewsList from "./pages/NewsList";
+import NewsDetail from "./pages/NewsDetail";
+import reportWebVitals from "./reportWebVitals";
+import Navigation from "./components/Navigation";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Provider store={store}>
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<News />} />
+          <Route path="/list" element={<NewsList />} />
+          <Route path="/details" element={<NewsDetail />} />
+        </Routes>
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
