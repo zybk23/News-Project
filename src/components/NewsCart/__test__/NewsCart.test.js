@@ -1,3 +1,5 @@
+/* eslint-disable jest/no-conditional-expect */
+/* eslint-disable testing-library/no-node-access */
 import NewsCart from "..";
 import { render, fireEvent, waitFor } from "@testing-library/react";
 import { Provider } from "react-redux";
@@ -45,8 +47,6 @@ const initialState = {
   articles: [],
   isArticlesLoaded: false,
   selectedCategories: [],
-  currentPage: 1,
-  lazyLoadedSources: [],
   selectedArticle: {},
 };
 
