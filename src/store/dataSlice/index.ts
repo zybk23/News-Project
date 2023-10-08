@@ -36,8 +36,7 @@ export interface stateType {
   articles: articlesTypes[];
   isArticlesLoaded: boolean;
   selectedCategories: string[];
-  currentPage: number;
-  lazyLoadedSources: sourcesTypes[];
+
   selectedArticle: articlesTypes;
 }
 
@@ -50,8 +49,6 @@ export const dataSlice = createSlice({
     articles: [],
     isArticlesLoaded: false,
     selectedCategories: [],
-    currentPage: 1,
-    lazyLoadedSources: [],
     selectedArticle: {},
   },
   reducers: {
@@ -72,10 +69,6 @@ export const dataSlice = createSlice({
           action.payload,
         ];
       }
-    },
-    setLazyLoadedSources: (state: stateType, action: PayloadAction<any>) => {
-      state.lazyLoadedSources = [...state.lazyLoadedSources, ...action.payload];
-      state.currentPage = state.currentPage + 1;
     },
     setSelectedArticles: (
       state: stateType,
@@ -169,10 +162,6 @@ export const dataSlice = createSlice({
   },
 });
 
-export const {
-  setSelectedCategories,
-  setLazyLoadedSources,
-  setSelectedArticles,
-} = dataSlice.actions;
+export const { setSelectedCategories, setSelectedArticles } = dataSlice.actions;
 
 export default dataSlice.reducer;
