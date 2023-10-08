@@ -50,15 +50,16 @@ const NewsList = () => {
     pages.push(i);
   }
   const filteredArticles = articles.slice(indexOfFirstItem, indexOfLastItem);
-  // useEffect(() => {
-  //   let interval = setInterval(() => {
-  //     const sourceName = localStorage.getItem("sourceName");
-  //     dispatch(getArticles(sourceName || ""));
-  //   }, 5000);
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, []);
+
+  useEffect(() => {
+    let interval = setInterval(() => {
+      const sourceName = localStorage.getItem("sourceName");
+      dispatch(getArticles(sourceName || ""));
+    }, 60000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
     <div className="news-detail-container">
@@ -99,7 +100,7 @@ const NewsList = () => {
           </div>
         </div>
       </Container>
-      {pages.length > 2 && (
+      {pages.length > 1 && (
         <Pagination
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}

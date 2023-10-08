@@ -36,7 +36,6 @@ export interface stateType {
   articles: articlesTypes[];
   isArticlesLoaded: boolean;
   selectedCategories: string[];
-
   selectedArticle: articlesTypes;
 }
 
