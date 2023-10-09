@@ -14,7 +14,13 @@ import {
 import moment from "moment";
 
 export const getNews = createAsyncThunk("data/getNews", async () => {
-  const response = await axios.get(`${baseApiUrl}/sources?apiKey=${apiKey}`);
+  const response = await axios.get(`${baseApiUrl}/sources?apiKey=${apiKey}`, {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      // "Access-Control-Allow-Origin": "*",
+    },
+    withCredentials: false,
+  });
   return response.data.sources;
 });
 
