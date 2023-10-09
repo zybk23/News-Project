@@ -16,8 +16,9 @@ import moment from "moment";
 export const getNews = createAsyncThunk("data/getNews", async () => {
   const response = await axios.get(`${baseApiUrl}/sources?apiKey=${apiKey}`, {
     headers: {
+      "Cache-Control": "no-cache",
       "Content-Type": "application/x-www-form-urlencoded",
-      // "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Origin": "*",
     },
     withCredentials: false,
   });
